@@ -1,7 +1,6 @@
 package br.dev.paulovictorsilva.shop_api.dto;
 
 import br.dev.paulovictorsilva.shop_api.model.Shop;
-import br.dev.paulovictorsilva.shop_api.model.ShopItem;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +16,7 @@ public class ShopDto
     private String identifier;
     private LocalDate dateShop;
     private String status;
+    private String buyerIdentifier;
     private List<ShopItemDto> items = new ArrayList<>();
 
     public static ShopDto convert(Shop shop)
@@ -25,6 +25,7 @@ public class ShopDto
         shopDto.setIdentifier(shop.getIdentifier());
         shopDto.setDateShop(shop.getDateShop());
         shopDto.setStatus(shop.getStatus());
+        shopDto.setBuyerIdentifier(shop.getBuyerIdentifier());
         shopDto.setItems(
                 shop
                         .getItems()

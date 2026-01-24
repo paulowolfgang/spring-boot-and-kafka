@@ -25,6 +25,9 @@ public class Shop
     @Column(name = "date_shop")
     private LocalDate dateShop;
 
+    @Column(name = "buyer_identifier")
+    private String buyerIdentifier;
+
     @OneToMany(
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL,
@@ -38,6 +41,7 @@ public class Shop
         shop.setIdentifier(shopDto.getIdentifier());
         shop.setStatus(shopDto.getStatus());
         shop.setDateShop(shopDto.getDateShop());
+        shop.setBuyerIdentifier(shopDto.getBuyerIdentifier());
         shop.setItems(shopDto
                 .getItems()
                 .stream()
