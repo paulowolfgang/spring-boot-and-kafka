@@ -1,5 +1,6 @@
 package br.dev.paulovictorsilva.shop_api.model;
 
+import br.dev.paulovictorsilva.shop_api.dto.ShopDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
