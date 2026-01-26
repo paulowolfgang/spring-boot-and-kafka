@@ -1,6 +1,7 @@
 package br.dev.paulovictorsilva.shop_api.controller;
 
 import br.dev.paulovictorsilva.shop_api.dto.ShopDto;
+import br.dev.paulovictorsilva.shop_api.events.KafkaClient;
 import br.dev.paulovictorsilva.shop_api.model.Shop;
 import br.dev.paulovictorsilva.shop_api.model.ShopItem;
 import br.dev.paulovictorsilva.shop_api.repository.ShopRepository;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class ShopController
 {
     private final ShopRepository shopRepository;
+    private final KafkaClient kafkaClient;
 
     @GetMapping
     public List<ShopDto> getShop()
@@ -44,6 +46,9 @@ public class ShopController
             shopItem.setShop(shop);
         }
 
-        return ShopDto.convert(shopRepository.save(shop));
+        shopDto = shopDto.convert(shopRepository.save(shop));
+        kafkaClient.sendMessage(shopDto);
+
+        return shopDto;
     }
 }
