@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.dev.paulovictorsilva</groupId>
-	<artifactId>shop-api</artifactId>
+	<artifactId>shop-validator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shop-api</name>
+	<name>shop-validator</name>
 	<description>Ebook Spring-boot and Kafka</description>
 	<url/>
 	<licenses>
